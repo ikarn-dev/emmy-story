@@ -29,7 +29,6 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
     const currentIntro = introRef.current;
     const currentScrollIndicator = scrollIndicatorRef.current;
     const currentContent = contentRef.current;
-    const currentTitle = titleRef.current;
     const currentAnimation = animationRef.current;
 
     // Reset scroll position and hide overflow
