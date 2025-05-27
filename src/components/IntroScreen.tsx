@@ -4,11 +4,9 @@ import { useEffect, useRef, Suspense } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment, Loader } from '@react-three/drei';
+import { Environment, Loader } from '@react-three/drei';
 import { Emmy3D } from './Emmy3D';
 import Footer from './Footer';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 
 interface IntroScreenProps {
   onComplete: () => void;
@@ -89,17 +87,23 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
         pulseAnimation.kill();
         tl.kill();
 
-        gsap.to(contentRef.current, {
+        const currentContent = contentRef.current;
+        const currentIntro = introRef.current;
+        const currentAnimation = animationRef.current;
+
+        gsap.to(currentContent, {
           y: '-100vh',
           opacity: 0,
           duration: 0.4,
           ease: 'power2.in',
           onComplete: () => {
-            gsap.set(contentRef.current, { display: 'none' });
+            if (currentContent) {
+              gsap.set(currentContent, { display: 'none' });
+            }
           }
         });
 
-        gsap.to(introRef.current, {
+        gsap.to(currentIntro, {
           yPercent: -100,
           duration: 0.4,
           ease: 'power2.in',
@@ -120,7 +124,9 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
       if (animationRef.current.current) {
         animationRef.current.current.kill();
       }
-      gsap.killTweensOf([contentRef.current, introRef.current]);
+      const currentContent = contentRef.current;
+      const currentIntro = introRef.current;
+      gsap.killTweensOf([currentContent, currentIntro]);
       document.body.style.overflow = 'auto';
     };
   }, [onComplete]);
