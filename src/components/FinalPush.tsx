@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRouter } from 'next/navigation';
 import Timeline, { Chapter } from './Timeline';
-import { animateText, animateParagraph } from '@/utils/textAnimation';
+import { animateText } from '@/utils/textAnimation';
 import Footer from './Footer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -26,7 +26,6 @@ const FinalPush = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const emmyRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLDivElement>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   const handleBack = () => {

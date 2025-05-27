@@ -168,7 +168,7 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
                 <span 
                   className="text-6xl md:text-8xl font-bold tracking-tight text-white title"
                 >
-                  Emmy's
+                  Emmy&apos;s
                 </span>
                 <span 
                   className="text-6xl md:text-8xl font-bold tracking-tight text-white title"

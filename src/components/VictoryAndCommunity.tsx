@@ -186,9 +186,11 @@ const VictoryAndCommunity = () => {
 
               <div className="relative w-[350px] h-[350px] mx-auto">
                 <div className="relative">
-                  <img
+                  <Image
                     src="/png-nobg/happy-emmy-unscreen.gif"
                     alt="Happy Emmy"
+                    width={350}
+                    height={350}
                     className="w-full h-full object-contain mix-blend-screen"
                   />
                 </div>

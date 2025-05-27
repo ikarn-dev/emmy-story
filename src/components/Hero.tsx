@@ -18,7 +18,7 @@ const Hero = () => {
   const imageRef = useRef(null);
   const containerRef = useRef(null);
   const coinsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const [showFloatingCoins, setShowFloatingCoins] = useState(true);
+  const [showFloatingCoins] = useState(true);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
 
   useEffect(() => {
@@ -210,7 +210,7 @@ const Hero = () => {
                     <span className="line block text-start w-full">
                       <span className="word inline-block">Welcome</span>{' '}
                       <span className="word inline-block">to</span>{' '}
-                      <span className="word inline-block">Emmy's</span>{' '}
+                      <span className="word inline-block">Emmy&apos;s</span>{' '}
                       <span className="word inline-block">World</span>
                     </span>
                   </h1>
@@ -246,7 +246,7 @@ const Hero = () => {
                 onClick={handleNextChapter}
                 className="mt-8 px-8 py-4 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 rounded-full text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                Begin Emmy's Journey →
+                Begin Emmy&apos;s Journey →
               </motion.button>
             </motion.div>
 

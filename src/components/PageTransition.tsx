@@ -42,7 +42,7 @@ const PageTransition = ({ children, transitionKey, direction = 'left', bgColor =
       </AnimatePresence>
       <div
         ref={overlayRef}
-        className={`fixed inset-0 ${bgColor} transition-opacity duration-500 pointer-events-none`}
+        className={`fixed inset-0 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 transition-opacity duration-500 pointer-events-none z-50`}
         style={{ opacity: 0 }}
       />
     </div>
