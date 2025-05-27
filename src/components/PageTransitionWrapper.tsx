@@ -16,10 +16,7 @@ const PageTransitionWrapper = ({ children }: PageTransitionWrapperProps) => {
   }
 
   return (
-    <PageTransition
-      bgColor="rgba(79, 70, 229, 0.95)"
-      transitionKey={pathname}
-    >
+    <PageTransition transitionKey={pathname}>
       {children}
     </PageTransition>
   );
