@@ -17,8 +17,7 @@ const PageTransitionWrapper = ({ children }: PageTransitionWrapperProps) => {
 
   return (
     <PageTransition
-      direction="right"
-      bgColor="linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%)"
+      bgColor="rgba(79, 70, 229, 0.95)"
       transitionKey={pathname}
     >
       {children}

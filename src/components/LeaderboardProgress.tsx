@@ -37,7 +37,6 @@ const generateRandomStake = () => {
 
 const LeaderboardProgress = () => {
   const router = useRouter();
-  const [direction, setDirection] = useState<'left' | 'right'>('left');
   const [currentRank, setCurrentRank] = useState(847);
   const [achievements, setAchievements] = useState<string[]>([]);
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
@@ -48,17 +47,15 @@ const LeaderboardProgress = () => {
   const statsRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
-    setDirection('left');
     setTimeout(() => {
       router.push('/strategy');
-    }, 500);
+    }, 150);
   };
 
   const handleNextChapter = () => {
-    setDirection('right');
     setTimeout(() => {
       router.push('/final');
-    }, 500);
+    }, 150);
   };
 
   // Initialize leaderboard
@@ -190,7 +187,6 @@ const LeaderboardProgress = () => {
 
   return (
     <PageTransition 
-      direction={direction} 
       bgColor="rgba(79, 70, 229, 0.95)"
       transitionKey="leaderboard"
     >

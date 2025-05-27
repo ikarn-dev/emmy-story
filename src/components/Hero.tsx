@@ -19,7 +19,6 @@ const Hero = () => {
   const containerRef = useRef(null);
   const coinsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [showFloatingCoins] = useState(true);
-  const [direction, setDirection] = useState<'left' | 'right'>('right');
 
   useEffect(() => {
     if (skipIntro) {
@@ -102,15 +101,13 @@ const Hero = () => {
   }, [isLoading]);
 
   const handleNextChapter = () => {
-    setDirection('right');
     setTimeout(() => {
       router.push('/ascent');
-    }, 500);
+    }, 150);
   };
 
   return (
     <PageTransition 
-      direction={direction} 
       bgColor="rgba(79, 70, 229, 0.95)"
       transitionKey="hero"
     >
@@ -206,12 +203,12 @@ const Hero = () => {
                 {isLoading ? (
                   <div className="h-16 md:h-20 bg-white/10 rounded-lg animate-pulse" />
                 ) : (
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-lg">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg">
                     <span className="line block text-start w-full">
-                      <span className="word inline-block">Welcome</span>{' '}
-                      <span className="word inline-block">to</span>{' '}
-                      <span className="word inline-block">Emmy&apos;s</span>{' '}
-                      <span className="word inline-block">World</span>
+                      <span className="word inline-block text-white">Welcome</span>{' '}
+                      <span className="word inline-block text-white">to</span>{' '}
+                      <span className="word inline-block bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">Emmy&apos;s</span>{' '}
+                      <span className="word inline-block bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">World</span>
                     </span>
                   </h1>
                 )}

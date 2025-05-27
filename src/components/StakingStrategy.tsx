@@ -42,7 +42,6 @@ interface StakingMetric {
 const StakingStrategy = () => {
   const router = useRouter();
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
-  const [direction, setDirection] = useState<'left' | 'right'>('left');
   const titleRef = useRef(null);
   const emmyTextRef = useRef(null);
   const emmyText2Ref = useRef(null);
@@ -130,17 +129,15 @@ const StakingStrategy = () => {
   };
 
   const handleBack = () => {
-    setDirection('left');
     setTimeout(() => {
       router.push('/challenges');
-    }, 500);
+    }, 150);
   };
 
   const handleNextChapter = () => {
-    setDirection('right');
     setTimeout(() => {
       router.push('/leaderboard');
-    }, 500);
+    }, 150);
   };
 
   // GSAP text animations
@@ -217,8 +214,7 @@ const StakingStrategy = () => {
 
   return (
     <PageTransition 
-      direction={direction} 
-      bgColor="rgba(79, 70, 229, 0.95)" // Indigo color from the gradient
+      bgColor="rgba(79, 70, 229, 0.95)"
       transitionKey="strategy"
     >
       <section className="h-screen w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">

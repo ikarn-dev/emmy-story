@@ -20,7 +20,6 @@ const chapters: Chapter[] = [
 
 const TheAscent = () => {
   const router = useRouter();
-  const [direction, setDirection] = useState<'left' | 'right'>('left');
   const textRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -54,28 +53,28 @@ const TheAscent = () => {
         opacity: 1,
         y: 0,
         rotationX: 0,
-        duration: 0.8,
+        duration: 0.4,
         stagger: {
-          amount: 0.6,
+          amount: 0.3,
           ease: "power2.out"
         },
         ease: "back.out(1.7)"
       })
-      // Animate subtitle
+      // Animate subtitle with faster stagger
       .to('.subtitle-span', {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.6,
-        stagger: 0.1,
+        duration: 0.3,
+        stagger: 0.05,
         ease: "power2.out"
-      }, "-=0.3")
+      }, "-=0.2")
       // Animate content items
       .to('.content-item', {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        stagger: 0.2,
+        duration: 0.4,
+        stagger: 0.1,
         ease: "power2.out"
       }, "-=0.2");
 
@@ -85,22 +84,19 @@ const TheAscent = () => {
   }, []);
 
   const handleBack = () => {
-    setDirection('left');
     setTimeout(() => {
       router.push('/');
-    }, 500);
+    }, 150);
   };
 
   const handleNextChapter = () => {
-    setDirection('right');
     setTimeout(() => {
       router.push('/challenges');
-    }, 500);
+    }, 150);
   };
 
   return (
     <PageTransition 
-      direction={direction} 
       bgColor="rgba(79, 70, 229, 0.95)"
       transitionKey="ascent"
     >
