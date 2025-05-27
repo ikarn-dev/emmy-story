@@ -7,16 +7,6 @@ import PageTransitionWrapper from "@/components/PageTransitionWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Add Founders Grotesk font
-const foundersGrotesk = {
-  fontFamily: 'Founders Grotesk',
-  src: `url('/fonts/FoundersGrotesk-Regular.woff2') format('woff2'),
-        url('/fonts/FoundersGrotesk-Regular.woff') format('woff')`,
-  fontWeight: 'normal',
-  fontStyle: 'normal',
-  fontDisplay: 'swap',
-};
-
 export const metadata: Metadata = {
   title: "Emmy's Story",
   description: "Join Emmy on her quest to become the ultimate staking champion",
