@@ -25,6 +25,13 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
   const animationRef = useRef<AnimationRef>({ current: null });
 
   useEffect(() => {
+    // Store ref values at the start of the effect
+    const currentIntro = introRef.current;
+    const currentScrollIndicator = scrollIndicatorRef.current;
+    const currentContent = contentRef.current;
+    const currentTitle = titleRef.current;
+    const currentAnimation = animationRef.current;
+
     // Reset scroll position and hide overflow
     window.scrollTo(0, 0);
     document.body.style.overflow = 'hidden';
@@ -64,14 +71,14 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
       ease: "power2.out",
     }, "-=0.4")
     // Scroll indicator fade in
-    .to(scrollIndicatorRef.current, {
+    .to(currentScrollIndicator, {
       opacity: 1,
       duration: 1,
       ease: 'power2.out',
     });
 
     // Scroll indicator pulse animation
-    const pulseAnimation = gsap.to(scrollIndicatorRef.current, {
+    const pulseAnimation = gsap.to(currentScrollIndicator, {
       y: 10,
       opacity: 0.6,
       duration: 2,
@@ -86,10 +93,6 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
         window.removeEventListener('wheel', handleScroll);
         pulseAnimation.kill();
         tl.kill();
-
-        const currentContent = contentRef.current;
-        const currentIntro = introRef.current;
-        const currentAnimation = animationRef.current;
 
         gsap.to(currentContent, {
           y: '-100vh',
@@ -116,16 +119,14 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
     };
 
     window.addEventListener('wheel', handleScroll);
-    animationRef.current.current = tl;
+    currentAnimation.current = tl;
 
     // Cleanup
     return () => {
       window.removeEventListener('wheel', handleScroll);
-      if (animationRef.current.current) {
-        animationRef.current.current.kill();
+      if (currentAnimation.current) {
+        currentAnimation.current.kill();
       }
-      const currentContent = contentRef.current;
-      const currentIntro = introRef.current;
       gsap.killTweensOf([currentContent, currentIntro]);
       document.body.style.overflow = 'auto';
     };
