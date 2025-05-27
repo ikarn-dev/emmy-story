@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Timeline, { Chapter } from './Timeline';
 import { useRouter } from 'next/navigation';
@@ -97,7 +97,6 @@ const TheAscent = () => {
 
   return (
     <PageTransition 
-      bgColor="rgba(79, 70, 229, 0.95)"
       transitionKey="ascent"
     >
       <section className="h-screen w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">

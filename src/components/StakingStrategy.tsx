@@ -214,7 +214,6 @@ const StakingStrategy = () => {
 
   return (
     <PageTransition 
-      bgColor="rgba(79, 70, 229, 0.95)"
       transitionKey="strategy"
     >
       <section className="h-screen w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">

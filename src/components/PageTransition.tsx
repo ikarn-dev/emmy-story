@@ -5,10 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface PageTransitionProps {
   children: React.ReactNode;
   transitionKey: string;
-  bgColor?: string;
 }
 
-const PageTransition = ({ children, transitionKey, bgColor = 'bg-indigo-900' }: PageTransitionProps) => {
+const PageTransition = ({ children, transitionKey }: PageTransitionProps) => {
   return (
     <div className="relative">
       <AnimatePresence mode="sync">
