@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
 import Timeline, { Chapter } from './Timeline';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -52,8 +51,6 @@ const chapters: Chapter[] = [
 
 const ChallengesObstacles = () => {
   const router = useRouter();
-  const [activeObstacle, setActiveObstacle] = useState(0);
-  const [showThought, setShowThought] = useState(false);
   const textRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLDivElement | null>(null);
 
@@ -81,16 +78,6 @@ const ChallengesObstacles = () => {
     return () => {
       if (container) container.innerHTML = '';
     };
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveObstacle((prev) => (prev + 1) % obstacles.length);
-      setShowThought(true);
-      setTimeout(() => setShowThought(false), 2000);
-    }, 5000);
-
-    return () => clearInterval(interval);
   }, []);
 
   // GSAP text animation on mount
@@ -178,7 +165,7 @@ const ChallengesObstacles = () => {
               <div className="space-y-2" ref={titleRef}>
                 <div className="text-3xl md:text-4xl font-bold leading-tight">
                   <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center lg:justify-start">
-                    <span className="word-span text-white title">Emmy's</span>
+                    <span className="word-span text-white title">Emmy&apos;s</span>
                     <span className="word-span bg-gradient-to-r from-red-400 via-yellow-400 to-blue-400 bg-clip-text text-transparent title">Challenges</span>
                   </div>
                   <div className="flex flex-wrap gap-x-4 gap-y-2 mt-2 justify-center lg:justify-start">
