@@ -217,7 +217,7 @@ const LeaderboardProgress = () => {
             <div className="text-left space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                  Emmy's Rise to Glory
+                  Emmy&apos;s Rise to Glory
                 </h2>
               </div>
 
@@ -226,7 +226,7 @@ const LeaderboardProgress = () => {
               </p>
 
               <p ref={statsRef} className="text-base text-white/80 font-normal">
-                Starting from rank #847, Emmy's strategic staking moves and perfect timing have propelled her through the ranks. Each milestone brings new achievements and rewards, showcasing the power of smart staking decisions.
+                Starting from rank #847, Emmy&apos;s strategic staking moves and perfect timing have propelled her through the ranks. Each milestone brings new achievements and rewards, showcasing the power of smart staking decisions.
               </p>
 
               {/* Current Rank Display and Emmy Image Container */}

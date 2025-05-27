@@ -102,6 +102,7 @@ const TheAscent = () => {
     <PageTransition 
       direction={direction} 
       bgColor="rgba(79, 70, 229, 0.95)"
+      transitionKey="ascent"
     >
       <section className="h-screen w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
         {/* Animated background elements */}
@@ -138,7 +139,7 @@ const TheAscent = () => {
                 <div className="space-y-2">
                   <div className="text-3xl md:text-4xl font-bold leading-tight">
                     <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center lg:justify-start">
-                      <span className="word-span text-white">Emmy's</span>
+                      <span className="word-span text-white">Emmy&apos;s</span>
                       <span className="word-span bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">Leaderboard</span>
                     </div>
                     <div className="flex flex-wrap gap-x-4 gap-y-2 mt-2 justify-center lg:justify-start">
@@ -151,7 +152,7 @@ const TheAscent = () => {
                 {/* Animated Subtitle */}
                 <div ref={subtitleRef} className="text-base md:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   <span className="subtitle-span inline-block">Magic</span>{' '}
-                  <span className="subtitle-span inline-block">Eden's</span>{' '}
+                  <span className="subtitle-span inline-block">Eden&apos;s</span>{' '}
                   <span className="subtitle-span inline-block text-purple-400 font-semibold">official</span>{' '}
                   <span className="subtitle-span inline-block text-purple-400 font-semibold">avatar</span>{' '}
                   <span className="subtitle-span inline-block">is</span>{' '}

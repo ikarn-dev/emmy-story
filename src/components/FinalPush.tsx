@@ -99,7 +99,7 @@ const FinalPush = () => {
               <div className="text-3xl md:text-4xl font-bold leading-tight">
                 <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center lg:justify-start">
                   <span ref={(el) => { wordRefs.current[0] = el }} className="word-span text-white title">
-                    Emmy's
+                    Emmy&apos;s
                   </span>
                   <span ref={(el) => { wordRefs.current[1] = el }} className="word-span bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent title">
                     Final

@@ -7,7 +7,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import Timeline, { Chapter } from './Timeline';
 import confetti from 'canvas-confetti';
 import gsap from 'gsap';
-import { animateText, animateParagraph } from '@/utils/textAnimation';
+import { animateText } from '@/utils/textAnimation';
 import Footer from './Footer';
 
 const VictoryAndCommunity = () => {
@@ -15,7 +15,6 @@ const VictoryAndCommunity = () => {
   const pathname = usePathname();
   const [showConfetti, setShowConfetti] = useState(true);
   const textRef = useRef<HTMLDivElement>(null);
-  const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   // Dynamic chapters based on current path
   const chapters: Chapter[] = [
@@ -219,7 +218,7 @@ const VictoryAndCommunity = () => {
                   <div className="flex items-center gap-2">
                     <div className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500" />
                     <div>
-                      <div className="text-white font-medium text-sm title">Emmy's Community</div>
+                      <div className="text-white font-medium text-sm title">Emmy&apos;s Community</div>
                       <div className="text-white/70 text-xs paragraph">
                         Join our growing community of staking enthusiasts! 🎉
                       </div>
@@ -232,7 +231,7 @@ const VictoryAndCommunity = () => {
                     <div>
                       <div className="text-white font-medium text-sm title">Season 2 is Live!</div>
                       <div className="text-white/70 text-xs paragraph">
-                        Airdrop coming soon! Don't miss out! 🚀
+                        Airdrop coming soon! Don&apos;t miss out! 🚀
                       </div>
                     </div>
                   </div>

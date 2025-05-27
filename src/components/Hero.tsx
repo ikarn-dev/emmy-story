@@ -1,12 +1,11 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { useRouter, useSearchParams } from 'next/navigation';
 import CustomCursor from './CustomCursor';
-import Timeline, { Chapter } from './Timeline';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
 
@@ -14,9 +13,7 @@ const Hero = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [showIntro, setShowIntro] = useState(true);
-  const skipIntro = searchParams.get('skipIntro') === 'true';
+  const [skipIntro, setSkipIntro] = useState(searchParams.get('skipIntro') === 'true');
   const textRef = useRef(null);
   const imageRef = useRef(null);
   const containerRef = useRef(null);
@@ -26,7 +23,7 @@ const Hero = () => {
 
   useEffect(() => {
     if (skipIntro) {
-      setShowIntro(false);
+      setSkipIntro(false);
     }
   }, [skipIntro]);
 
@@ -52,10 +49,6 @@ const Hero = () => {
     // Simulate loading
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-      // Set loaded state after a short delay to ensure smooth transition
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 500);
     }, 1000);
 
     return () => {
@@ -108,10 +101,6 @@ const Hero = () => {
     }
   }, [isLoading]);
 
-  const handleStart = () => {
-    setShowIntro(false);
-  };
-
   const handleNextChapter = () => {
     setDirection('right');
     setTimeout(() => {
@@ -123,6 +112,7 @@ const Hero = () => {
     <PageTransition 
       direction={direction} 
       bgColor="rgba(79, 70, 229, 0.95)"
+      transitionKey="hero"
     >
       <section className="h-screen w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
         <CustomCursor />

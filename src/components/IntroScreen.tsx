@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, Suspense } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
@@ -5,17 +7,24 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment, Loader } from '@react-three/drei';
 import { Emmy3D } from './Emmy3D';
 import Footer from './Footer';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 interface IntroScreenProps {
   onComplete: () => void;
 }
+
+// Replace any with a proper type
+type AnimationRef = {
+  current: gsap.core.Timeline | null;
+};
 
 const IntroScreen = ({ onComplete }: IntroScreenProps) => {
   const introRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<any>(null);
+  const animationRef = useRef<AnimationRef>({ current: null });
 
   useEffect(() => {
     // Reset scroll position and hide overflow
@@ -103,14 +112,13 @@ const IntroScreen = ({ onComplete }: IntroScreenProps) => {
     };
 
     window.addEventListener('wheel', handleScroll);
-    animationRef.current = { tl, pulseAnimation };
+    animationRef.current.current = tl;
 
     // Cleanup
     return () => {
       window.removeEventListener('wheel', handleScroll);
-      if (animationRef.current) {
-        animationRef.current.tl.kill();
-        animationRef.current.pulseAnimation.kill();
+      if (animationRef.current.current) {
+        animationRef.current.current.kill();
       }
       gsap.killTweensOf([contentRef.current, introRef.current]);
       document.body.style.overflow = 'auto';

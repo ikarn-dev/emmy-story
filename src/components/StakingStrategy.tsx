@@ -42,7 +42,6 @@ interface StakingMetric {
 const StakingStrategy = () => {
   const router = useRouter();
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
-  const [isExiting, setIsExiting] = useState(false);
   const [direction, setDirection] = useState<'left' | 'right'>('left');
   const titleRef = useRef(null);
   const emmyTextRef = useRef(null);
@@ -132,7 +131,6 @@ const StakingStrategy = () => {
 
   const handleBack = () => {
     setDirection('left');
-    setIsExiting(true);
     setTimeout(() => {
       router.push('/challenges');
     }, 500);
@@ -140,7 +138,6 @@ const StakingStrategy = () => {
 
   const handleNextChapter = () => {
     setDirection('right');
-    setIsExiting(true);
     setTimeout(() => {
       router.push('/leaderboard');
     }, 500);
@@ -160,7 +157,7 @@ const StakingStrategy = () => {
       });
     }
 
-    // Animate Emmy's text with stagger effect
+    // Animate Emmy&apos;s text with stagger effect
     if (emmyTextRef.current) {
       gsap.set(emmyTextRef.current, { opacity: 0, y: 20 });
       tl.to(emmyTextRef.current, {
@@ -222,6 +219,7 @@ const StakingStrategy = () => {
     <PageTransition 
       direction={direction} 
       bgColor="rgba(79, 70, 229, 0.95)" // Indigo color from the gradient
+      transitionKey="strategy"
     >
       <section className="h-screen w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
         <Timeline 
@@ -261,17 +259,17 @@ const StakingStrategy = () => {
                   />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4 text-center">
-                  Emmy's Staking Guide
+                  Emmy&apos;s Staking Guide
                 </h3>
                 <div className="space-y-4 flex-grow">
                   <div className="bg-white/5 rounded-lg p-4">
                     <p ref={emmyTextRef} className="text-white/90 text-sm font-normal">
-                      "Watch how I maximize my staking rewards through strategic timing and portfolio diversification!"
+                      &quot;Watch how I maximize my staking rewards through strategic timing and portfolio diversification!&quot;
                     </p>
                   </div>
                   <div className="bg-white/5 rounded-lg p-4">
                     <p ref={emmyText2Ref} className="text-white/90 text-sm font-normal">
-                      "Notice how I balance risk and reward to maintain a steady growth in my portfolio."
+                      &quot;Notice how I balance risk and reward to maintain a steady growth in my portfolio.&quot;
                     </p>
                   </div>
                 </div>
