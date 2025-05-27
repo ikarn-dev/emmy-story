@@ -4,6 +4,7 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import FontLoader from "@/components/FontLoader";
 import PageTransitionWrapper from "@/components/PageTransitionWrapper";
+import MobileDetector from "@/components/MobileDetector";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <FontLoader />
       </head>
       <body className={inter.className}>
+        <MobileDetector />
         <CustomCursor />
         <PageTransitionWrapper>
           {children}
