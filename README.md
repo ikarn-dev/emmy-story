@@ -91,6 +91,15 @@ src/
 - **Tailwind CSS**: Utility-first CSS framework
 - **Hot Reloading**: Fast development with Next.js hot reloading
 
+### ESLint Configuration
+
+The project uses ESLint with the following custom rules:
+- Unused variables are treated as warnings
+- Unescaped entities are allowed
+- Image element warnings are treated as warnings
+- React hooks dependency warnings are treated as warnings
+- Explicit any types are treated as warnings
+
 ## 📝 Scripts
 
 - `npm run dev`: Start development server with Turbopack
